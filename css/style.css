@@ -1,0 +1,464 @@
+/* =========================
+   VARIÁVEIS (Movidas para o topo)
+========================= */
+:root {
+    --bg: #f5f7fa;
+    --text: #222;
+    --card: #ffffff;
+    --card-title: #001f5b; /* Criada para corrigir o contraste do h3 */
+    --nav: #111;
+    --section-title: #001f5b;
+    --footer: #111;
+    --shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+body.dark {
+    --bg: #0f172a;
+    --text: #f1f5f9;
+    --card: #1e293b;
+    --card-title: #f1f5f9; /* Texto claro no modo escuro */
+    --nav: #020617;
+    --section-title: #ffffff;
+    --footer: #020617;
+    --shadow: 0 10px 30px rgba(0,0,0,.6);
+}
+
+/* =========================
+   RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: .4s;
+}
+
+/* =========================
+   HEADER
+========================= */
+header {
+    min-height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), 
+                url("../imgs/copa\ do\ mundo\ 2026.avif"); /* Ajustado nome do arquivo */
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+header::after {
+    content: "";
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(90deg, #ff0000, #ff6600, #b5d300, #00c2a8, #4361ee, #7209b7);
+    filter: blur(30px);
+    border-radius: 50%;
+}
+
+header h1 {
+    font-size: 4rem;
+    text-shadow: 4px 4px 15px rgba(0,0,0,.8);
+}
+
+header p {
+    font-size: 1.3rem;
+    margin-top: 10px;
+}
+
+/* =========================
+   MENU
+========================= */
+nav {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: var(--nav);
+    backdrop-filter: blur(15px);
+}
+
+nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Centraliza verticalmente o botão e os links */
+    flex-wrap: wrap;
+    list-style: none;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 25px;
+    display: block;
+    transition: .4s;
+    font-weight: bold;
+}
+
+nav a:hover {
+    background: #d90429;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero {
+    height: 650px;
+    background: linear-gradient(rgba(0,0,0,.55), rgba(0,0,0,.55)), 
+                url("../imgs/trofeu\ copa\ do\ mundo.jpg"); /* Ajustado nome do arquivo */
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.hero-content {
+    max-width: 900px;
+    padding: 20px;
+    color: white;
+}
+
+.hero-content h2 {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    text-shadow: 4px 4px 15px rgba(0,0,0,.8);
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+}
+
+.hero-content button {
+    border: none;
+    padding: 15px 35px;
+    border-radius: 50px;
+    background: linear-gradient(135deg, #d90429, #4361ee);
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: .4s;
+}
+
+.hero-content button:hover {
+    transform: scale(1.08);
+}
+
+/* =========================
+   SEÇÕES
+========================= */
+section {
+    padding: 80px 8%;
+}
+
+section h2 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: var(--section-title);
+    font-size: 2.4rem;
+}
+
+section h2::after {
+    content: "";
+    display: block;
+    width: 120px;
+    height: 5px;
+    margin: 10px auto;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #d90429, #4361ee);
+}
+
+/* =========================
+   CARDS
+========================= */
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.card {
+    background: var(--card);
+    color: var(--text);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: var(--shadow); /* Atualizado para usar a variável de sombra */
+    transition: .4s;
+    position: relative;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.4), transparent);
+    transition: .8s;
+}
+
+.card:hover::before {
+    left: 100%;
+}
+
+.card:hover {
+    transform: translateY(-12px);
+}
+
+.card img {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    display: block;
+}
+
+.card h3 {
+    padding: 15px;
+    color: var(--card-title); /* Corrigido para adaptar ao Modo Escuro */
+}
+
+.card p {
+    padding: 0 15px 20px;
+}
+
+/* =========================
+   PESQUISA
+========================= */
+.pesquisa {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.pesquisa input {
+    width: 100%;
+    max-width: 500px;
+    padding: 15px;
+    border-radius: 40px;
+    border: 2px solid #4361ee;
+    outline: none;
+    background: var(--card); /* Adapta o input ao tema escuro */
+    color: var(--text);
+}
+
+/* =========================
+   SELEÇÕES
+========================= */
+.lista-selecoes {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.time {
+    background: var(--card);
+    color: var(--text);
+    padding: 20px;
+    text-align: center;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.1);
+    transition: .4s;
+    font-weight: bold;
+}
+
+.time:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #d90429, #4361ee);
+    color: white;
+}
+
+.time img {
+    width: 90px;
+    height: 90px;
+    object-fit: contain;
+    display: block;
+    margin: 15px auto 0;
+}
+
+/* =========================
+   CURIOSIDADES
+========================= */
+#curiosidades ul {
+    max-width: 900px;
+    margin: auto;
+    list-style: none;
+}
+
+#curiosidades li {
+    background: var(--card); /* Corrigido de 'white' para aceitar o modo escuro */
+    color: var(--text);
+    padding: 20px;
+    margin: 15px 0;
+    border-left: 66px solid #d90429; /* Removido espaço duplicado do 6 */
+    border-left: 6px solid #d90429;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    background: var(--footer);
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+}
+
+footer a {
+    color: #ffd60a;
+    text-decoration: none;
+}
+
+/* =========================
+   MENU HAMBÚRGUER (ESTILOS)
+========================= */
+
+/* Escondido por padrão no Desktop */
+.menu-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 15px 20px;
+    z-index: 1000;
+}
+
+/* As 3 linhas do botão */
+.menu-hamburger span {
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    border-radius: 10px;
+    transition: all 0.3s linear;
+    position: relative;
+    transform-origin: 1px;
+}
+
+/* Estilos de responsividade para telas menores que 768px */
+@media(max-width: 768px) {
+    nav {
+        display: flex;
+        justify-content: flex-end; /* Alinha o botão do hambúrguer à direita */
+        align-items: center;
+        min-height: 60px;
+    }
+
+    .menu-hamburger {
+        display: flex; /* Mostra o botão no mobile */
+    }
+
+    .nav-menu {
+        position: absolute;
+        top: 60px; /* Logo abaixo do nav */
+        left: 0;
+        width: 100%;
+        height: 0; /* Começa fechado */
+        background: var(--nav);
+        flex-direction: column;
+        overflow: hidden;
+        transition: height 0.4s ease-in-out;
+    }
+
+    /* Quando o menu tiver a classe 'active', ele abre */
+    .nav-menu.active {
+        height: 320px; /* Altura suficiente para os links no mobile */
+    }
+
+    nav a {
+        padding: 15px 0;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    /* --- ANIMAÇÃO PARA TRANSFORMAR O HAMBÚRGUER EM 'X' --- */
+    .menu-hamburger.active span:nth-child(1) {
+        transform: rotate(45deg);
+    }
+
+    .menu-hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(20px);
+    }
+
+    .menu-hamburger.active span:nth-child(3) {
+        transform: rotate(-45deg);
+    }
+}
+
+/* =========================
+   BOTÃO TEMA
+========================= */
+#theme-toggle {
+    background: linear-gradient(135deg, #d90429, #4361ee);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: .3s;
+    margin: 8px;
+}
+
+#theme-toggle:hover {
+    transform: scale(1.05);
+}
+
+/* =========================
+   TABLET
+========================= */
+@media(max-width: 1024px) {
+    header h1 { font-size: 3rem; }
+    .hero h2 { font-size: 3rem; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* =========================
+   CELULAR
+========================= */
+@media(max-width: 768px) {
+    nav ul { flex-direction: column; }
+    nav a { text-align: center; padding: 12px 20px; }
+    header { min-height: 350px; }
+    header h1 { font-size: 2.2rem; }
+    .hero { height: 500px; }
+    .hero h2 { font-size: 2rem; }
+    .hero p { font-size: 1rem; }
+    .cards { grid-template-columns: 1fr; }
+    .lista-selecoes { grid-template-columns: repeat(2, 1fr); }
+    section { padding: 60px 20px; }
+}
+
+/* =========================
+   CELULAR PEQUENO
+========================= */
+@media(max-width: 480px) {
+    .hero { height: 450px; }
+    .hero h2 { font-size: 1.6rem; }
+    .hero p { font-size: .9rem; }
+    .lista-selecoes { grid-template-columns: 1fr; }
+    .time img { width: 70px; height: 70px; }
+    header h1 { font-size: 1.8rem; }
+}
